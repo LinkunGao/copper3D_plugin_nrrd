@@ -1,0 +1,32 @@
+{
+  "name": "copper3d_plugin_nrrd",
+  "version": "1.0.5",
+  "description": "a nrrd support for copper3D",
+  "main": "/src/index.js",
+  "scripts": {
+    "build": "rollup -c rollup.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LinkunGao/copper3D_plugin_nrrd.git"
+  },
+  "files": [
+    "src"
+  ],
+  "author": "skycoco",
+  "license": "Apache-2.0",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "fflate": "^0.7.4",
+    "three": "^0.148.0"
+  },
+  "devDependencies": {
+    "rollup": "^3.10.1"
+  },
+  "bugs": {
+    "url": "https://github.com/LinkunGao/copper3D_plugin_nrrd/issues"
+  },
+  "homepage": "https://github.com/LinkunGao/copper3D_plugin_nrrd#readme"
+}
