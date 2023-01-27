@@ -5,7 +5,6 @@ import { Volume } from "./Volume.js";
 class NRRDLoader extends Loader {
   constructor(manager) {
     super(manager);
-    console.log("nrrd debug");
   }
 
   load(url, onLoad, onProgress, onError) {
