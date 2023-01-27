@@ -1,9 +1,15 @@
 'use strict';
 
+var addition = function addition(a, b) {
+  return a + b;
+};
+
 // import { NRRDLoader } from "./NRRDLoader.js";
-
 var version = "0.0.1";
-
+var index = {
+  version: version,
+  addition: addition
+};
 // export default NRRDLoader;
 // export ;
 
@@ -12,4 +18,4 @@ var version = "0.0.1";
 // "main": "dist/main.umd.js",
 //   "moudle": "dist/main.esm.js",
 
-exports.version = version;
+module.exports = index;

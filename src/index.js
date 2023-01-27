@@ -1,7 +1,8 @@
 // import { NRRDLoader } from "./NRRDLoader.js";
+import addition from "./add.js";
 
-export const version = "0.0.1";
-
+const version = "0.0.1";
+export default { version, addition };
 // export default NRRDLoader;
 // export ;
 
