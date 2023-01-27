@@ -7,8 +7,8 @@ export function test() {
   console.log("nimashishabi");
 }
 
-export { addition };
-export default NRRDLoader;
+export { addition, NRRDLoader };
+// export default NRRDLoader;
 
 // "main": "/src/index.js",
 
