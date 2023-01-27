@@ -4,13 +4,12 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.copper3D_nrrd_plugin = {}));
 })(this, (function (exports) { 'use strict';
 
-  const addition = (a, b) => {
+  var addition = function addition(a, b) {
     return a + b;
   };
 
   // import { NRRDLoader } from "./NRRDLoader.js";
-
-  const version = "0.0.1";
+  var version = "0.0.1";
   // export default NRRDLoader;
   // export ;
 
