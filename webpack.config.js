@@ -16,3 +16,6 @@ module.exports = {
     libraryTarget: "umd",
   },
 };
+
+//  "webpack": "^5.75.0",
+//     "webpack-cli": "^5.0.1"
