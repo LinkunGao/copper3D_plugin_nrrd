@@ -1,8 +1,10 @@
 // import { NRRDLoader } from "./NRRDLoader.js";
 import addition from "./add.js";
 
-export const version = "0.0.1";
-export { addition };
+export function test() {
+  document.write("测试自定义包");
+  console.log("test()");
+}
 // export default NRRDLoader;
 // export ;
 

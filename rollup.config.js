@@ -6,12 +6,8 @@ export default {
   output: [
     {
       name: "copper3D_nrrd_plugin",
-      file: "dist/main.umd.js",
+      file: "dist/bundle.js",
       format: "umd",
-    },
-    {
-      file: "dist/main.esm.js",
-      format: "es",
     },
   ],
   plugins: [

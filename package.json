@@ -2,9 +2,7 @@
   "name": "copper3d_plugin_nrrd",
   "version": "1.0.20",
   "description": "a nrrd support for copper3D",
-  "module": "dist/main.esm.js",
-  "browser": "dist/main.umd.js",
-  "main": "dist/main.umd.js",
+  "main": "dist/bundle.js",
   "scripts": {
     "build": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1"
