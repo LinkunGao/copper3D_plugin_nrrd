@@ -11479,6 +11479,7 @@ class Volume {
 class NRRDLoader extends Loader {
   constructor(manager) {
     super(manager);
+    console.log("nrrd debug");
   }
 
   load(url, onLoad, onProgress, onError) {
