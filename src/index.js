@@ -2,7 +2,7 @@ import { NRRDLoader } from "./NRRDLoader.js";
 
 export const version = "0.0.1";
 
-module.exports = { NRRDLoader };
+export default NRRDLoader;
 // export ;
 
 // "main": "/src/index.js",

@@ -1,5 +1,7 @@
 'use strict';
 
+Object.defineProperty(exports, '__esModule', { value: true });
+
 /**
  * @license
  * Copyright 2010-2022 Three.js Authors
@@ -12043,8 +12045,6 @@ const _fieldFunctions = {
 };
 
 const version = "0.0.1";
-
-module.exports = { NRRDLoader };
 // export ;
 
 // "main": "/src/index.js",
@@ -12052,4 +12052,5 @@ module.exports = { NRRDLoader };
 // "main": "dist/main.umd.js",
 //   "moudle": "dist/main.esm.js",
 
+exports.default = NRRDLoader;
 exports.version = version;

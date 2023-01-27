@@ -12041,8 +12041,6 @@ const _fieldFunctions = {
 };
 
 const version = "0.0.1";
-
-module.exports = { NRRDLoader };
 // export ;
 
 // "main": "/src/index.js",
@@ -12050,4 +12048,4 @@ module.exports = { NRRDLoader };
 // "main": "dist/main.umd.js",
 //   "moudle": "dist/main.esm.js",
 
-export { version };
+export { NRRDLoader as default, version };
