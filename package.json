@@ -1,6 +1,6 @@
 {
   "name": "copper3d_plugin_nrrd",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "a nrrd support for copper3D",
   "main": "dist/main.umd.js",
   "moudle": "dist/main.esm.js",
