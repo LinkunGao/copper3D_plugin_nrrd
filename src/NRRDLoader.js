@@ -35,6 +35,14 @@ class NRRDLoader extends Loader {
     );
   }
 
+  /**
+   *
+   * @param {boolean} segmentation is a option for user to choose
+   */
+  setSegmentation(segmentation) {
+    this.segmentation = segmentation;
+  }
+
   parse(data) {
     // this parser is largely inspired from the XTK NRRD parser : https://github.com/xtk/X
 
@@ -346,40 +354,38 @@ class NRRDLoader extends Loader {
       transitionMatrix.set(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1);
     }
 
-    if (!headerObject.vectors) {
+    if (!headerObject.vectors || this.segmentation) {
+      console.log("set segmentation mode");
       volume.matrix.set(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
     } else {
-      // const v = headerObject.vectors;
+      const v = headerObject.vectors;
 
-      // const ijk_to_transition = new Matrix4().set(
-      //   v[0][0],
-      //   v[1][0],
-      //   v[2][0],
-      //   0,
-      //   v[0][1],
-      //   v[1][1],
-      //   v[2][1],
-      //   0,
-      //   v[0][2],
-      //   v[1][2],
-      //   v[2][2],
-      //   0,
-      //   0,
-      //   0,
-      //   0,
-      //   1
-      // );
+      const ijk_to_transition = new Matrix4().set(
+        v[0][0],
+        v[1][0],
+        v[2][0],
+        0,
+        v[0][1],
+        v[1][1],
+        v[2][1],
+        0,
+        v[0][2],
+        v[1][2],
+        v[2][2],
+        0,
+        0,
+        0,
+        0,
+        1
+      );
 
-      // const transition_to_ras = new Matrix4().multiplyMatrices(
-      //   ijk_to_transition,
-      //   transitionMatrix
-      // );
+      const transition_to_ras = new Matrix4().multiplyMatrices(
+        ijk_to_transition,
+        transitionMatrix
+      );
 
-      // volume.matrix = transition_to_ras;
-      volume.matrix.set(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      volume.matrix = transition_to_ras;
     }
-
-    console.log("hi it's me!!!!! In nrrd support line 383!");
 
     volume.inverseMatrix = new Matrix4();
     volume.inverseMatrix.copy(volume.matrix).invert();
