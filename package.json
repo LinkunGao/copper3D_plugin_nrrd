@@ -4,7 +4,7 @@
   "description": "a nrrd support for copper3D",
   "main": "dist/atguigu-utils.js",
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c --bundleConfigAsCjs",
     "build:watch": "webpack --watch"
   },
   "repository": {

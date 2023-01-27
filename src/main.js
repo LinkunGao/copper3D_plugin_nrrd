@@ -4,6 +4,7 @@ import addition from "./add.js";
 export function test() {
   document.write("测试自定义包");
   console.log("test()");
+  console.log("nimashishabi");
 }
 // export default NRRDLoader;
 // export ;

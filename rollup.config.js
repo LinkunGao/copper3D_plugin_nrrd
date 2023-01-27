@@ -1,4 +1,4 @@
-import babel from "@rollup/plugin-babel";
+var babel = require("@rollup/plugin-babel");
 
 export default {
   input: "./src/main.js",
