@@ -17,7 +17,7 @@ export default {
       file: "./dist/main.cjs.js",
       format: "cjs", // CommonJS，适用于 Node 和 Browserify/Webpack
       name: "Copper_Nrrd_Plugin",
-      // exports: "default",
+      exports: "default",
     },
   ],
   watch: {
