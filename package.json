@@ -2,10 +2,9 @@
   "name": "copper3d_plugin_nrrd",
   "version": "1.0.16",
   "description": "a nrrd support for copper3D",
-  "main": "dist/main.umd.js",
-  "moudle": "dist/main.esm.js",
+  "main": "dist/main.cjs.js",
   "scripts": {
-    "build": "rollup -c rollup.config.js",
+    "build": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,11 +22,8 @@
   },
   "type": "module",
   "devDependencies": {
-    "@babel/core": "^7.20.12",
-    "@babel/preset-env": "^7.20.2",
-    "@rollup/plugin-babel": "^6.0.3",
-    "rollup": "^3.10.1",
-    "rollup-plugin-commonjs": "^10.1.0"
+    "@rollup/plugin-terser": "^0.4.0",
+    "rollup": "^3.10.1"
   },
   "bugs": {
     "url": "https://github.com/LinkunGao/copper3D_plugin_nrrd/issues"
