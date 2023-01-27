@@ -2,7 +2,7 @@
   "name": "copper3d_plugin_nrrd",
   "version": "1.0.25",
   "description": "a nrrd support for copper3D",
-  "main": "dist/atguigu-utils.js",
+  "main": "dist/bundle.js",
   "scripts": {
     "build": "rollup -c --bundleConfigAsCjs",
     "build:webpack": "webpack"
@@ -25,9 +25,7 @@
     "@babel/core": "^7.20.12",
     "@babel/preset-env": "^7.20.2",
     "@rollup/plugin-babel": "^6.0.3",
-    "rollup": "^3.11.0",
-    "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.1"
+    "rollup": "^3.11.0"
   },
   "bugs": {
     "url": "https://github.com/LinkunGao/copper3D_plugin_nrrd/issues"
