@@ -1,4 +1,4 @@
-// import { NRRDLoader } from "./NRRDLoader.js";
+import { NRRDLoader } from "./NRRDLoader.js";
 import addition from "./add.js";
 
 export function test() {
@@ -8,7 +8,7 @@ export function test() {
 }
 
 export { addition };
-// export default NRRDLoader;
+export default NRRDLoader;
 
 // "main": "/src/index.js",
 
