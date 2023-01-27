@@ -17,15 +17,17 @@
   ],
   "author": "skycoco",
   "license": "ISC",
-  "type": "module",
   "dependencies": {
     "fflate": "^0.7.4",
     "three": "^0.148.0"
   },
+  "type": "module",
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^24.0.1",
-    "@rollup/plugin-node-resolve": "^15.0.1",
-    "rollup": "^3.10.1"
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2",
+    "@rollup/plugin-babel": "^6.0.3",
+    "rollup": "^3.10.1",
+    "rollup-plugin-commonjs": "^10.1.0"
   },
   "bugs": {
     "url": "https://github.com/LinkunGao/copper3D_plugin_nrrd/issues"
