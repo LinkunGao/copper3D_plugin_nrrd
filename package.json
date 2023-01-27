@@ -5,7 +5,7 @@
   "main": "dist/atguigu-utils.js",
   "scripts": {
     "build": "rollup -c --bundleConfigAsCjs",
-    "build:watch": "webpack --watch"
+    "build:webpack": "webpack"
   },
   "repository": {
     "type": "git",
@@ -25,7 +25,9 @@
     "@babel/core": "^7.20.12",
     "@babel/preset-env": "^7.20.2",
     "@rollup/plugin-babel": "^6.0.3",
-    "rollup": "^3.11.0"
+    "rollup": "^3.11.0",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   },
   "bugs": {
     "url": "https://github.com/LinkunGao/copper3D_plugin_nrrd/issues"

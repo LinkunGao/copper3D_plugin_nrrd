@@ -17,5 +17,4 @@ module.exports = {
   },
 };
 
-//  "webpack": "^5.75.0",
-//     "webpack-cli": "^5.0.1"
+// npm i webpack webpack-cli -D
