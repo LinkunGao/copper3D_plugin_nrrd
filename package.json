@@ -1,6 +1,6 @@
 {
   "name": "copper3d_plugin_nrrd",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "description": "a nrrd support for copper3D",
   "main": "dist/atguigu-utils.js",
   "scripts": {
