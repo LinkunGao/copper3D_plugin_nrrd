@@ -1,19 +1,28 @@
-import terser from "@rollup/plugin-terser";
-const pkg = require("./package.json");
+import babel from "@rollup/plugin-babel";
 
 export default {
-  input: "src/main.js",
-  plugins: [terser()],
+  input: "./src/main.js",
+
   output: [
     {
       name: "copper3D_nrrd_plugin",
-      file: pkg.browser,
+      file: "dist/main.umd.js",
       format: "umd",
     },
     {
-      file: pkg.module,
+      file: "dist/main.cjs.js",
+      format: "cjs",
+    },
+    {
+      file: "dist/main.esm.js",
       format: "es",
     },
+  ],
+  plugins: [
+    babel({
+      babelHelpers: "bundled",
+      presets: [["@babel/preset-env", { modules: false }]],
+    }),
   ],
 };
 // import commonjs from "@rollup/plugin-commonjs";

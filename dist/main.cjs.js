@@ -1,15 +1,14 @@
 'use strict';
 
-var addition = function addition(a, b) {
+Object.defineProperty(exports, '__esModule', { value: true });
+
+const addition = (a, b) => {
   return a + b;
 };
 
 // import { NRRDLoader } from "./NRRDLoader.js";
-var version = "0.0.1";
-var index = {
-  version: version,
-  addition: addition
-};
+
+const version = "0.0.1";
 // export default NRRDLoader;
 // export ;
 
@@ -18,4 +17,5 @@ var index = {
 // "main": "dist/main.umd.js",
 //   "moudle": "dist/main.esm.js",
 
-module.exports = index;
+exports.addition = addition;
+exports.default = version;
