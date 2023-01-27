@@ -19,8 +19,6 @@
   //   "moudle": "dist/main.esm.js",
 
   exports.addition = addition;
-  exports.default = version;
-
-  Object.defineProperty(exports, '__esModule', { value: true });
+  exports.version = version;
 
 }));

@@ -10,10 +10,6 @@ export default {
       format: "umd",
     },
     {
-      file: "dist/main.cjs.js",
-      format: "cjs",
-    },
-    {
       file: "dist/main.esm.js",
       format: "es",
     },

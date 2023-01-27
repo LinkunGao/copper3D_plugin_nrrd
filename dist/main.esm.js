@@ -12,4 +12,4 @@ var version = "0.0.1";
 // "main": "dist/main.umd.js",
 //   "moudle": "dist/main.esm.js",
 
-export { addition, version as default };
+export { addition, version };
