@@ -11477,9 +11477,8 @@ class Volume {
 }
 
 class NRRDLoader extends Loader {
-  constructor(manager, segmentation) {
+  constructor(manager) {
     super(manager);
-    this.segmentation = segmentation;
   }
 
   load(url, onLoad, onProgress, onError) {
@@ -11508,6 +11507,14 @@ class NRRDLoader extends Loader {
       onProgress,
       onError
     );
+  }
+
+  /**
+   *
+   * @param {boolean} segmentation is a option for user to choose
+   */
+  setSegmentation(segmentation) {
+    this.segmentation = segmentation;
   }
 
   parse(data) {
@@ -11822,6 +11829,7 @@ class NRRDLoader extends Loader {
     }
 
     if (!headerObject.vectors || this.segmentation) {
+      console.log("set segmentation mode");
       volume.matrix.set(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
     } else {
       const v = headerObject.vectors;

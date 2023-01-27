@@ -3,7 +3,6 @@ import * as fflate from "fflate";
 import { Volume } from "./Volume.js";
 
 class NRRDLoader extends Loader {
-  public segmentation = false;
   constructor(manager) {
     super(manager);
   }
@@ -34,6 +33,14 @@ class NRRDLoader extends Loader {
       onProgress,
       onError
     );
+  }
+
+  /**
+   *
+   * @param {boolean} segmentation is a option for user to choose
+   */
+  setSegmentation(segmentation) {
+    this.segmentation = segmentation;
   }
 
   parse(data) {
@@ -348,6 +355,7 @@ class NRRDLoader extends Loader {
     }
 
     if (!headerObject.vectors || this.segmentation) {
+      console.log("set segmentation mode");
       volume.matrix.set(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
     } else {
       const v = headerObject.vectors;
