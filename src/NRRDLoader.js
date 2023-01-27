@@ -566,4 +566,10 @@ const _fieldFunctions = {
   },
 };
 
+export class AA {
+  constructor() {
+    this.a = 0;
+  }
+}
+
 export { NRRDLoader };
