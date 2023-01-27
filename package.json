@@ -1,6 +1,6 @@
 {
   "name": "copper3d_plugin_nrrd",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "description": "a nrrd support for copper3D",
   "main": "dist/bundle.js",
   "scripts": {
