@@ -1,13 +1,8 @@
-import { NRRDLoader, AA } from "./NRRDLoader.js";
-import addition from "./add.js";
+import { NRRDLoader } from "./NRRDLoader.js";
 
-export function test() {
-  document.write("测试自定义包");
-  console.log("test()");
-  console.log("nimashishabi");
-}
+export const version = "1.1.0";
 
-export { addition, NRRDLoader, AA };
+export { NRRDLoader };
 // export default NRRDLoader;
 
 // "main": "/src/index.js",
