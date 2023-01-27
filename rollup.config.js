@@ -1,23 +1,19 @@
-import commonjs from "@rollup/plugin-commonjs";
-import resolve from "@rollup/plugin-node-resolve";
+var babel = require("@rollup/plugin-babel");
 
 export default {
-  input: "./src/index.js",
+  input: "./src/main.js",
+
   output: [
     {
-      file: "dist/main.umd.js",
+      name: "copper3D_nrrd_plugin",
+      file: "dist/bundle.js",
       format: "umd",
-      name: "bundle-name",
-    },
-    {
-      file: "dist/main.esm.js",
-      format: "esm",
-    },
-    {
-      file: "dist/main.cjs.js",
-      format: "cjs",
     },
   ],
-
-  plugins: [resolve(), commonjs()],
+  plugins: [
+    babel({
+      babelHelpers: "bundled",
+      presets: [["@babel/preset-env", { modules: false }]],
+    }),
+  ],
 };

@@ -1,12 +1,11 @@
 {
   "name": "copper3d_plugin_nrrd",
-  "version": "1.0.8",
+  "version": "1.1.1",
   "description": "a nrrd support for copper3D",
-  "main": "dist/main.umd.js",
-  "moudle": "dist/main.esm.js",
+  "main": "dist/bundle.js",
   "scripts": {
-    "build": "rollup -c rollup.config.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c --bundleConfigAsCjs",
+    "build:webpack": "webpack"
   },
   "repository": {
     "type": "git",
@@ -17,15 +16,16 @@
   ],
   "author": "skycoco",
   "license": "ISC",
-  "type": "module",
   "dependencies": {
     "fflate": "^0.7.4",
     "three": "^0.148.0"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^24.0.1",
-    "@rollup/plugin-node-resolve": "^15.0.1",
-    "rollup": "^3.10.1"
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2",
+    "@rollup/plugin-babel": "^6.0.3",
+    "rollup": "^3.11.0"
   },
   "bugs": {
     "url": "https://github.com/LinkunGao/copper3D_plugin_nrrd/issues"
