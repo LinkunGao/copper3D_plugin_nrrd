@@ -3,9 +3,9 @@ import * as fflate from "fflate";
 import { Volume } from "./Volume.js";
 
 class NRRDLoader extends Loader {
-  constructor(manager, segmentation) {
+  public segmentation = false;
+  constructor(manager) {
     super(manager);
-    this.segmentation = segmentation;
   }
 
   load(url, onLoad, onProgress, onError) {
