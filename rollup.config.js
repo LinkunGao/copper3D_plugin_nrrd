@@ -7,7 +7,7 @@ export default {
     {
       file: "dist/main.umd.js",
       format: "umd",
-      name: "bundle-name",
+      name: "Copper_Nrrd",
     },
     {
       file: "dist/main.esm.js",
