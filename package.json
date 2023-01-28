@@ -3,6 +3,7 @@
   "version": "1.1.1",
   "description": "a nrrd support for copper3D",
   "main": "dist/bundle.js",
+  "moudle": "dist/bundle.esm.js",
   "scripts": {
     "build": "rollup -c --bundleConfigAsCjs",
     "build:webpack": "webpack"

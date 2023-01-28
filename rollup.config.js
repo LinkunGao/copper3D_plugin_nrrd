@@ -9,11 +9,15 @@ export default {
       file: "dist/bundle.js",
       format: "umd",
     },
+    {
+      file: "dist/bundle.esm.js",
+      format: "esm",
+    },
   ],
   plugins: [
     babel({
       babelHelpers: "bundled",
-      presets: [["@babel/preset-env", { modules: false }]],
+      presets: [["@babel/preset-env"]],
     }),
   ],
 };
