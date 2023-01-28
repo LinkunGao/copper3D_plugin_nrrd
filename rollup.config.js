@@ -11,7 +11,7 @@ export default {
     },
     {
       file: "dist/bundle.esm.js",
-      format: "esm",
+      format: "es",
     },
   ],
   plugins: [

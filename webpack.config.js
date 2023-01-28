@@ -14,6 +14,7 @@ module.exports = {
     library: "aUtils",
     // 打包生成库可以通过esm/commonjs/reqirejs的语法引入
     libraryTarget: "umd",
+    libraryExport: "default", // 增加这个属性
   },
 };
 
