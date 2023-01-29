@@ -18,8 +18,18 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
 
-      - run: npm ci --ignore-scripts
-      - run: npm run build
+      # - run: npm ci --ignore-scripts
+      # - run: npm run build
+      - name: Run install
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install # will run `yarn install` command
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.COPPER3D_NRRD_PLUGIN_TO_NPM }} # if needed
+      - name: Build production bundle
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: build:prod # will run `yarn build:prod` command
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.COPPER3D_NRRD_PLUGIN_TO_NPM}}
