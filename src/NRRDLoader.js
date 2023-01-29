@@ -328,7 +328,7 @@ class NRRDLoader extends Loader {
         (vector) => vector[2] !== 0
       );
 
-      const axisOrder = [];
+      let axisOrder = [];
       if (xIndex !== yIndex && xIndex !== zIndex && yIndex !== zIndex) {
         axisOrder[xIndex] = "x";
         axisOrder[yIndex] = "y";
