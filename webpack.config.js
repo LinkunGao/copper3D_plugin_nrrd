@@ -9,11 +9,12 @@ module.exports = {
     // 打包文件夹
     path: path.resolve(__dirname, "dist"),
     // 打包文件
-    filename: "atguigu-utils.js",
+    filename: "bundle.js",
     // 向外暴露的对象的名称
-    library: "aUtils",
+    library: "copper3D_nrrd_plugin",
     // 打包生成库可以通过esm/commonjs/reqirejs的语法引入
     libraryTarget: "umd",
+    // libraryExport: "default", // 增加这个属性只能用于 esm module的加载，而不能用于umd的加载
   },
 };
 
