@@ -31,7 +31,7 @@
     "rollup": "^3.11.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-uglify": "^6.0.4"
+    "rollup-plugin-uglify": "^5.0.2"
   },
   "bugs": {
     "url": "https://github.com/LinkunGao/copper3D_plugin_nrrd/issues"
