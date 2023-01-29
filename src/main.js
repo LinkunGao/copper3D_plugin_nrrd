@@ -1,6 +1,6 @@
 import { NRRDLoader } from "./NRRDLoader.js";
 
-export const version = "1.1.6";
+export const version = "1.2.0";
 
 export { NRRDLoader };
 // export default NRRDLoader;
