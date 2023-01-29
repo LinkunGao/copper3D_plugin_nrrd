@@ -329,9 +329,13 @@ class NRRDLoader extends Loader {
       );
 
       const axisOrder = [];
-      axisOrder[xIndex] = "x";
-      axisOrder[yIndex] = "y";
-      axisOrder[zIndex] = "z";
+      if (xIndex !== yIndex && xIndex !== zIndex && yIndex !== zIndex) {
+        axisOrder[xIndex] = "x";
+        axisOrder[yIndex] = "y";
+        axisOrder[zIndex] = "z";
+      } else {
+        axisOrder = ["x", "y", "z"];
+      }
       volume.axisOrder = axisOrder;
     } else {
       volume.axisOrder = ["x", "y", "z"];
