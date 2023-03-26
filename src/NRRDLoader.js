@@ -342,10 +342,20 @@ class NRRDLoader extends Loader {
     }
 
     // spacing
-    const spacingX = new Vector3().fromArray(headerObject.vectors[0]).length();
-    const spacingY = new Vector3().fromArray(headerObject.vectors[1]).length();
-    const spacingZ = new Vector3().fromArray(headerObject.vectors[2]).length();
-    volume.spacing = [spacingX, spacingY, spacingZ];
+    if (this.segmentation) {
+      volume.spacing = [1, 1, 1];
+    } else {
+      const spacingX = new Vector3()
+        .fromArray(headerObject.vectors[0])
+        .length();
+      const spacingY = new Vector3()
+        .fromArray(headerObject.vectors[1])
+        .length();
+      const spacingZ = new Vector3()
+        .fromArray(headerObject.vectors[2])
+        .length();
+      volume.spacing = [spacingX, spacingY, spacingZ];
+    }
 
     // Create IJKtoRAS matrix
     volume.matrix = new Matrix4();
