@@ -1,5 +1,5 @@
 import { FileLoader, Loader, Matrix4, Vector3 } from "three";
-import * as fflate from "fflate";
+import * as fflate from "three/examples/jsm/libs/fflate.module.js";
 import { Volume } from "./Volume.js";
 
 class NRRDLoader extends Loader {
@@ -248,6 +248,7 @@ class NRRDLoader extends Loader {
     }
 
     const _bytes = scan("uchar", data.byteLength);
+
     const _length = _bytes.length;
     let _header = null;
     let _data_start = 0;
@@ -270,7 +271,7 @@ class NRRDLoader extends Loader {
     if (headerObject.encoding.substring(0, 2) === "gz") {
       // we need to decompress the datastream
       // here we start the unzipping and get a typed Uint8Array back
-      _data = fflate.gunzipSync(new Uint8Array(_data)); // eslint-disable-line no-undef
+      _data = fflate.gunzipSync(new Uint8Array(_data));
     } else if (
       headerObject.encoding === "ascii" ||
       headerObject.encoding === "text" ||
@@ -294,6 +295,8 @@ class NRRDLoader extends Loader {
 
     const volume = new Volume();
     volume.header = headerObject;
+    volume.segmentation = this.segmentation;
+
     //
     // parse the (unzipped) data to a datastream of the correct type
     //
@@ -329,33 +332,27 @@ class NRRDLoader extends Loader {
       );
 
       let axisOrder = [];
+
       if (xIndex !== yIndex && xIndex !== zIndex && yIndex !== zIndex) {
         axisOrder[xIndex] = "x";
         axisOrder[yIndex] = "y";
         axisOrder[zIndex] = "z";
       } else {
-        axisOrder = ["x", "y", "z"];
+        axisOrder[0] = "x";
+        axisOrder[1] = "y";
+        axisOrder[2] = "z";
       }
+
       volume.axisOrder = axisOrder;
     } else {
       volume.axisOrder = ["x", "y", "z"];
     }
 
     // spacing
-    if (this.segmentation) {
-      volume.spacing = [1, 1, 1];
-    } else {
-      const spacingX = new Vector3()
-        .fromArray(headerObject.vectors[0])
-        .length();
-      const spacingY = new Vector3()
-        .fromArray(headerObject.vectors[1])
-        .length();
-      const spacingZ = new Vector3()
-        .fromArray(headerObject.vectors[2])
-        .length();
-      volume.spacing = [spacingX, spacingY, spacingZ];
-    }
+    const spacingX = new Vector3().fromArray(headerObject.vectors[0]).length();
+    const spacingY = new Vector3().fromArray(headerObject.vectors[1]).length();
+    const spacingZ = new Vector3().fromArray(headerObject.vectors[2]).length();
+    volume.spacing = [spacingX, spacingY, spacingZ];
 
     // Create IJKtoRAS matrix
     volume.matrix = new Matrix4();
@@ -368,13 +365,12 @@ class NRRDLoader extends Loader {
       transitionMatrix.set(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1);
     }
 
-    if (!headerObject.vectors || this.segmentation) {
-      console.log("set segmentation mode");
+    if (!headerObject.vectors) {
       volume.matrix.set(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
     } else {
       const v = headerObject.vectors;
 
-      const ijk_to_transition = new Matrix4().set(
+      const ijk_to_transition = new Matrix4().fromArray([
         v[0][0],
         v[1][0],
         v[2][0],
@@ -390,8 +386,8 @@ class NRRDLoader extends Loader {
         0,
         0,
         0,
-        1
-      );
+        1,
+      ]);
 
       const transition_to_ras = new Matrix4().multiplyMatrices(
         ijk_to_transition,
@@ -403,16 +399,13 @@ class NRRDLoader extends Loader {
 
     volume.inverseMatrix = new Matrix4();
     volume.inverseMatrix.copy(volume.matrix).invert();
-    volume.RASDimensions = new Vector3(
-      volume.xLength,
-      volume.yLength,
-      volume.zLength
-    )
-      .applyMatrix4(volume.matrix)
-      .round()
-      .toArray()
-      .map(Math.abs);
 
+    // volume.RASDimensions = new Vector3( volume.xLength, volume.yLength, volume.zLength ).applyMatrix4( volume.matrix ).round().toArray().map( Math.abs );
+    volume.RASDimensions = new Vector3(
+      Math.floor(volume.xLength * spacingX),
+      Math.floor(volume.yLength * spacingY),
+      Math.floor(volume.zLength * spacingZ)
+    ).toArray();
     // .. and set the default threshold
     // only if the threshold was not already set
     if (volume.lowerThreshold === -Infinity) {
