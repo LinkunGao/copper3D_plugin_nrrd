@@ -370,7 +370,7 @@ class NRRDLoader extends Loader {
     } else {
       const v = headerObject.vectors;
 
-      const ijk_to_transition = new Matrix4().fromArray([
+      const ijk_to_transition = new Matrix4().set(
         v[0][0],
         v[1][0],
         v[2][0],
@@ -386,8 +386,8 @@ class NRRDLoader extends Loader {
         0,
         0,
         0,
-        1,
-      ]);
+        1
+      );
 
       const transition_to_ras = new Matrix4().multiplyMatrices(
         ijk_to_transition,
@@ -401,11 +401,12 @@ class NRRDLoader extends Loader {
     volume.inverseMatrix.copy(volume.matrix).invert();
 
     // volume.RASDimensions = new Vector3( volume.xLength, volume.yLength, volume.zLength ).applyMatrix4( volume.matrix ).round().toArray().map( Math.abs );
-    volume.RASDimensions = new Vector3(
+    volume.RASDimensions = [
       Math.floor(volume.xLength * spacingX),
       Math.floor(volume.yLength * spacingY),
-      Math.floor(volume.zLength * spacingZ)
-    ).toArray();
+      Math.floor(volume.zLength * spacingZ),
+    ];
+
     // .. and set the default threshold
     // only if the threshold was not already set
     if (volume.lowerThreshold === -Infinity) {
